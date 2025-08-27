@@ -35,10 +35,27 @@ unidade = st.selectbox(
     key="unidade"
 )
 
-# MUDANÇA: Removi o parâmetro 'format' para corrigir o problema de digitação
-TM = st.number_input(f"Tempo médio até a falha do sistema ({unidade})", min_value=0.0, key="TM")
-DM = st.number_input(f"Tempo médio de delay-time (janela de detecção do defeito) ({unidade})", min_value=0.0, key="DM")
-ID = st.number_input("Imprecisão na estimativa do delay-time (%)", min_value=0.0, key="ID")
+TM = st.number_input(
+    f"Tempo médio até a falha do sistema ({unidade})",
+    min_value=0.0,
+    step=0.01,
+    format="%.2f",
+    key="TM"
+)
+DM = st.number_input(
+    f"Tempo médio de delay-time (janela de detecção do defeito) ({unidade})",
+    min_value=0.0,
+    step=0.01,
+    format="%.2f",
+    key="DM"
+)
+ID = st.number_input(
+    "Imprecisão na estimativa do delay-time (%)",
+    min_value=0.0,
+    step=0.01,
+    format="%.2f",
+    key="ID"
+)
 
 # Opções qualitativas
 opcoes_qualitativas = {
@@ -167,6 +184,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
