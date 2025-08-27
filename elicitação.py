@@ -8,6 +8,7 @@ Created on Wed Aug 27 09:34:42 2025
 import streamlit as st
 import numpy as np
 import random as rd
+from scipy.stats import weibull_min
 from scipy.integrate import dblquad
 
 # Funções de densidade
@@ -153,4 +154,5 @@ st.markdown("""
     Criado em 2012, o grupo reúne pesquisadores dedicados às áreas de risco, manutenção e modelagem de operações.<br>
     <a href='http://random.org.br' target='_blank' style='color:#888;'>Acesse o site do RANDOM</a>
 </div>
+
 """, unsafe_allow_html=True)
