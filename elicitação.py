@@ -25,8 +25,8 @@ st.markdown("Preencha os parâmetros abaixo para estimar os modelos de falha e d
 
 # Campos de entrada
 unidade = st.text_input("Unidade de tempo (ex.: horas, dias, semanas):", key="unidade")
-TM = st.number_input(f"Tempo médio até a falha do sistema", min_value=0.0, format="%.2f", key="TM")
-DM = st.number_input(f"Tempo médio de delay-time (janela de detecção do defeito)", min_value=0.0, format="%.2f", key="DM")
+TM = st.number_input(f"Tempo médio até a falha do sistema ({unidade})", min_value=0.0, format="%.2f", key="TM")
+DM = st.number_input(f"Tempo médio de delay-time (janela de detecção do defeito) ({unidade})", min_value=0.0, format="%.2f", key="DM")
 ID = st.number_input("Imprecisão na estimativa do delay-time (%)", min_value=0.0, format="%.2f", key="ID")
 
 # Opções qualitativas
@@ -156,6 +156,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
