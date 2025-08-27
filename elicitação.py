@@ -18,13 +18,24 @@ def fz(z, forma, escala):
 def fh(h, d_medio):
     return (1 / d_medio) * np.exp(- (1 / d_medio) * h)
 
+# =============================================================================
 # Interface Streamlit
+# =============================================================================
+
 st.title("📊 Elicitação para o Modelo Delay-Time")
 
 st.markdown("Preencha os parâmetros abaixo para estimar os modelos de falha e de defeito.")
 
-# Campos de entrada
-unidade = st.text_input("Unidade de tempo (ex.: horas, dias, semanas):", key="unidade")
+# --- Campos de entrada ---
+
+# MUDANÇA: Usei selectbox para a unidade para garantir consistência
+unidade = st.selectbox(
+    "Unidade de tempo:",
+    ("horas", "dias", "semanas", "meses", "anos"),
+    key="unidade"
+)
+
+# MUDANÇA: Removi o parâmetro 'format' para corrigir o problema de digitação
 TM = st.number_input(f"Tempo médio até a falha do sistema ({unidade})", min_value=0.0, key="TM")
 DM = st.number_input(f"Tempo médio de delay-time (janela de detecção do defeito) ({unidade})", min_value=0.0, key="DM")
 ID = st.number_input("Imprecisão na estimativa do delay-time (%)", min_value=0.0, key="ID")
@@ -156,6 +167,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
